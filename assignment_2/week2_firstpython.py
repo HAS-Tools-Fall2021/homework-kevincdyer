@@ -27,14 +27,16 @@ data.shape  # See how many rows and columns the data has
 data.head(6) # look at the first x rows of the data
 data.tail(6) # look at the last  x rows  of the data
 
-data.iloc[350:360] # grab any subset of rows to look at
-data.flow[350:380]  #Grab a subset of just the flow data dat look at
+data.iloc[11561:11931] # grab any subset of rows to look at
+data.flow[11831:11931]  #Grab a subset of just the flow data dat look at
 data.loc['1990-01-01']  #find a specific date
 
 # %%
 # Step 5 - Make a plot of the data
 # Change the numbers on the followin lines to plot a different portion of the data
-ax=data.iloc[400:500]['flow'].plot(linewidth=0.5)
+ax=data.iloc[11521:11931]['flow'].plot(linewidth=0.5)
 ax.set_ylabel('Daily Flow [cfs]')
 ax.set_xlabel('Date')
 
+
+# %%
