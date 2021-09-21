@@ -1,0 +1,26 @@
+Kevin Dyer
+9/4/21
+Homework 2
+
+1. Isolating the data for September from the last few years shows
+a steady trend of decreased flow rates as time goes on as the monsoon
+season ends. This is near constant for every September. Knowledge
+of this helped me to form my prediction for the average flow rate
+of this week being 85 cm^3/s. Though there is a slight chance of
+rain at the end of this week in Camp Verde, I believe this to be
+insignificant and that the trend will continue.
+
+2. flow_data is a numpyarray composed of all flow data collected from
+Camp Verde from 1/1/1989 till 9/18/2021. Using flow_data.shape we can
+get its dimensions which are (11949, 4).
+
+3. Flow exceeded my estimate in the month of September 769 times since
+1989, or 80.1%
+
+4.  Flow exceeded my estimate in the month of September since the year
+2000 459 times, or 72.9%. Flow exceeded my estimate in the month of
+September since the year 2010 248 times, or 75.15%.
+
+5. Daily flow in the first half of September was greater than my
+estimate of 85cm^3/s 386 times since 1989. While in the second half of
+September it's greater 408 times.
