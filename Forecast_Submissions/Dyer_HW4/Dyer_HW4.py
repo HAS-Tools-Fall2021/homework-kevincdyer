@@ -106,7 +106,7 @@ flow_count = np.sum((flow_data[:,3] > 85) & (flow_data[:,1]==9))
 print(flow_count)
 
 #Solution to Assignment 4 Question 4:
-flow_count = np.sum((flow_data[:,3] > 85) & (flow_data[:,1]==9) & (flow_data[:,0] >=2000))
+flow_count = np.sum((flow_data[:,3] > 85) & (flow_data[:,1]==9) & (flow_data[:,0] <=2000))
 print(flow_count)
 
 flow_count = np.sum((flow_data[:,3] > 85) & (flow_data[:,1]==9) & (flow_data[:,0] >=2010))
@@ -120,4 +120,4 @@ print(flow_count)
 ##Second Half of September:
 flow_count = np.sum((flow_data[:,3] > 85) & (flow_data[:,1]==9) & (flow_data[:,2] >=15))
 print(flow_count)
-# %%
+
