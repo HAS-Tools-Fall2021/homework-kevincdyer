@@ -2,6 +2,11 @@ Kevin Dyer
 10/2/2021
 Homework 6
 
+___
+## Grade: 
+2/3: Good start. A lot of your plots were blank though? also part of the assignment was to describe the plots you made and why and I don't see any descriptions here.   
+__
+
 ![](assets/DYER_HW6-12af21dc.png)
 
 ![](assets/DYER_HW6-7749b77b.png)
