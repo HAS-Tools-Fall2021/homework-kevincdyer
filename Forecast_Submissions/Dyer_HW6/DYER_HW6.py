@@ -82,7 +82,7 @@ for i in range(2000, 2010):
         plot_data=data[(data['year']==i) & (data['month']==9)]
         ax.plot(plot_data['day'], plot_data['flow'],
                 label=i)
-        ax.set(title="Spetember Flow", ylim=[0, 10])
+        ax.set(title="September Flow", ylim=[0, 10])
         ax.legend()
 plt.show()
 fig.savefig("Sept_Trends.png")

@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 # %%
 filename = 'streamflow_week4.txt'
-filepath = os.path.join('../data', filename)
+filepath = os.path.join('../../data', filename)
 print(os.getcwd())
 print(filepath)
 
