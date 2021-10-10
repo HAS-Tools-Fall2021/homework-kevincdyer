@@ -8,13 +8,14 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
+import seaborn as sns
 
 #note you may need to do pip install for sklearn
 
 # %%
 # ** MODIFY **
 # Set the file name and path to where you have stored the data
-filename = 'streamflow_week6.txt'
+filename = 'streamflow_week7.txt'
 filepath = os.path.join('../data', filename)
 print(os.getcwd())
 print(filepath)
@@ -82,7 +83,7 @@ for i in range(2000, 2010):
         plot_data=data[(data['year']==i) & (data['month']==9)]
         ax.plot(plot_data['day'], plot_data['flow'],
                 label=i)
-        ax.set(title="September Flow", ylim=[0, 10])
+        ax.set(yscale='log', title="September Flow")
         ax.legend()
 plt.show()
 fig.savefig("Sept_Trends.png")
