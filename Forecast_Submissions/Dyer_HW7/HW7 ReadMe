@@ -123,3 +123,10 @@ flow_subset = flow_median(Year, Month, Days, data) \
 print(flow_subset)
 
 Either of these options gives you the same result, a printed version of the array, but it's simpler to just run the function as is instead of assigning a variable to it. Rewriting the code with option 1 will make your code more concise.
+
+\
+For plot 2 I would suggest simplifying your code from using 'c=' and 'cmap=' to using 'color='. While 'c=' and 'cmap=' are technically correct, you have your plots set up to only plot one year of data. Using a colormap is not as helpful for only one year of data because it is not a range of years. The colormap is only providing the first color on the colormap to the plot because it only has one year of data to color. This is why the points plot as the dark blue-black color. That is the first color on the 'magma' colormap. Using 'color=' gives you more flexibility with choosing colors for your plot and will simplify your code.
+
+I would also recommend experimenting with 'facecolor=' which adds background colors to plots in matplotlib. This helps make plots more readable after saving them to files. This parameter is used with the fig variable like so:
+
+fig.set(facecolor='brown')
