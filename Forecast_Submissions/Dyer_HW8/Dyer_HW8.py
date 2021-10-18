@@ -47,11 +47,11 @@ def flow_median(startyear, month, daysinmonth, data):
         Parameters:
         "month" represents the number of the month you want, int (October = 10)
         "startyear" the year range you want, int (year =< 2021)
-        "daysinmonth" represents the amount of days in month, which for october, is 31.
+        "daysinmonth" represents the amount of days in month, which for October, is 31.
         "data" is my dataframe
 
         Output:
-        This function returns a print statement that provides 
+        This function returns a print statement that provides the median flow of that range
         '''
         flow_median = np.zeros(daysinmonth)
         for d in range(daysinmonth):
@@ -89,7 +89,7 @@ ax.set(title="Last Week's Flow, 10/11 - 10/16", xlabel='Date', ylabel='Flow in C
 ax.legend(loc='lower right')
 ax.xaxis.set_major_formatter(date_form)
 plt.show
-fig.savefig("Week7Flow.png")
+fig.savefig("LastWeeksFlow.png")
 
 
 # %%
@@ -119,17 +119,17 @@ fig.savefig("Oct_2019_2020.png")
 date_form2 = DateFormatter("%d")
 
 fig, ax = plt.subplots(1, 2)
-ax[0].xaxis.set_major_formatter(date_form2)
-ax[0].scatter(data['datetime'], data['flow'], color='orange', marker='o')
-ax[0].set(title="This Week's Flow, 2019", xlabel='Date', ylabel='Flow in CFS',
-        xlim =[datetime.date(2019, 10, 10), datetime.date(2019, 10, 16)],
+ax[1].xaxis.set_major_formatter(date_form2)
+ax[1].scatter(data['datetime'], data['flow'], color='orange', marker='o')
+ax[1].set(title="This Week's Flow, 2019", xlabel='Date', ylabel='Flow in CFS',
+        xlim =[datetime.date(2019, 10, 18), datetime.date(2019, 10, 23)],
         ylim =[0, 300])
 
-ax[1].xaxis.set_major_formatter(date_form2)
-ax[1].scatter(data['datetime'], data['flow'], color='violet', marker='o')
-ax[1].set(title="This Week's Flow, 2018", xlabel='Date', ylabel='Flow in CFS',
-        xlim =[datetime.date(2018, 10, 10), datetime.date(2018, 10, 16)],
-        ylim =[0, 600])
+ax[0].xaxis.set_major_formatter(date_form2)
+ax[0].scatter(data['datetime'], data['flow'], color='violet', marker='o')
+ax[0].set(title="This Week's Flow, 2018", xlabel='Date', ylabel='Flow in CFS',
+        xlim =[datetime.date(2018, 10, 18), datetime.date(2018, 10, 23)],
+        ylim =[0, 300])
 plt.show()
 fig.set_size_inches(12, 4)
 fig.savefig("This_week_2018_2019")
