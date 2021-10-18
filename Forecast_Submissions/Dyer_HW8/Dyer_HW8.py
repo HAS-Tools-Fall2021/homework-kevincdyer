@@ -7,10 +7,11 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
+from matplotlib.dates import DateFormatter
 
 # %%
 # Set the file name and path to where you have stored the data
-filename = 'streamflow_week7.txt'
+filename = 'streamflow_week8.txt'
 filepath = os.path.join('..\..\data', filename)
 print(os.getcwd())
 print(filepath)
@@ -39,37 +40,52 @@ for d in range(31):
 # %%
 # My Function
 
-def flow_median(year, month, daysinmonth, data):
+def flow_median(startyear, month, daysinmonth, data):
+        '''
+        This function determines the median flow for any month, day, or year in the range of the data.
+
+        Parameters:
+        "month" represents the number of the month you want, int (October = 10)
+        "startyear" the year range you want, int (year =< 2021)
+        "daysinmonth" represents the amount of days in month, which for october, is 31.
+        "data" is my dataframe
+
+        Output:
+        This function returns a print statement that provides 
+        '''
         flow_median = np.zeros(daysinmonth)
         for d in range(daysinmonth):
                 daytemp = d+1
-                tempdata = data[(data['year']>=year) & (data['month'] == month) & (data['day'] == daytemp)]
+                tempdata = data[(data['year']>=startyear) & (data['month'] == month) & (data['day'] == daytemp)]
                 flow_median[d] = np.median(tempdata['flow'])
-                #print('Iteration', d,'Day=', daytemp, 'Flow=', month_median[d])
         return flow_median
+
+print('Iteration', d,'Day=', daytemp, 'Flow=', month_median[d])
 # %%
 # Change to represent the subset of data you want to see
 
-Year = 2016
+Startyear = 2011
 Month = 10
 Days = 31
 
-flow_subset = flow_median(Year, Month, Days, data)
+flow_subset = flow_median(Startyear, Month, Days, data)
+
+print(flow_subset)
 
 # %%
 print('My one week prediction for average flow is', np.max(flow_subset), \
         'ft^3/s, and my two week prediction is', np.median(flow_subset), \
-        'ft^3/s. Both predictions are based off the median flow rates of Camp Verde from the Month of October since 2016. The 1 week prediction is the max of this subset of data due to the unusually high amount of rainfall recently, and the two week preidction is the median of this subset of data.')
+        'ft^3/s. Both predictions are based off the median flow rates of Camp Verde from the Month of October since 2011. The 1 week prediction is the max of this subset of data due to the unusually high amount of rainfall recently, and the two week preidction is the median of this subset of data.')
 
 # %%
-# Line graph of This week's flow so far
+# Line graph of last week's flow 
 date_form = DateFormatter("%m/%d")
 
 fig, ax = plt.subplots()
-ax.plot(data['datetime'], data['flow'], color='magenta', label='this week')
-ax.set(title="This Week's Flow, 9/30 - 10/6", xlabel='Date', ylabel='Flow in CFS',
-        xlim = [datetime.date(2021, 9, 30), datetime.date(2021, 10, 6)],
-        ylim = [130, 250]),
+ax.plot(data['datetime'], data['flow'], color='magenta', label='last week')
+ax.set(title="Last Week's Flow, 10/11 - 10/16", xlabel='Date', ylabel='Flow in CFS',
+        xlim = [datetime.date(2021, 10, 11), datetime.date(2021, 10, 16)],
+        ylim = [100, 200]),
 ax.legend(loc='lower right')
 ax.xaxis.set_major_formatter(date_form)
 plt.show
@@ -100,12 +116,16 @@ fig.savefig("Oct_2019_2020.png")
 
 # %%
 # Graph 3 Scatterplots of Flow this week in 2018 and 2019
+date_form2 = DateFormatter("%d")
+
 fig, ax = plt.subplots(1, 2)
+ax[0].xaxis.set_major_formatter(date_form2)
 ax[0].scatter(data['datetime'], data['flow'], color='orange', marker='o')
 ax[0].set(title="This Week's Flow, 2019", xlabel='Date', ylabel='Flow in CFS',
         xlim =[datetime.date(2019, 10, 10), datetime.date(2019, 10, 16)],
         ylim =[0, 300])
 
+ax[1].xaxis.set_major_formatter(date_form2)
 ax[1].scatter(data['datetime'], data['flow'], color='violet', marker='o')
 ax[1].set(title="This Week's Flow, 2018", xlabel='Date', ylabel='Flow in CFS',
         xlim =[datetime.date(2018, 10, 10), datetime.date(2018, 10, 16)],
@@ -113,3 +133,4 @@ ax[1].set(title="This Week's Flow, 2018", xlabel='Date', ylabel='Flow in CFS',
 plt.show()
 fig.set_size_inches(12, 4)
 fig.savefig("This_week_2018_2019")
+# %%
