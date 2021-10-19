@@ -2,6 +2,18 @@ Kevin Dyer
 10/18/21
 Homework 8
 
+____________
+## Grade:
+### 1. Forecast Submision: 
+**3/3:** Great work! I'm really happy to hear that the revision process was useful to you and that you are pround of your function. Also nice job on the plotting I like how thoughtful you are in what you are plotting and why.  
+
+### 2. Graded Script
+Refer to [the rubric](https://github.com/HAS-Tools-Fall2021/Course-Materials21/blob/main/Content/Starter_Codes/week7_code_review_rubric.md) for details on scoring: 
+- **Readability:3/3** Very easy to follow. Maybe add just a few more comments into the code itself next time (eg above line 33) but overrall very easy to follow. Nice job on the doc strings. 
+- **Style:3/3** No pep8 errors
+- **Code:3/3** Nice work it ran easily for me with no issues. I really like how your function works and the nice print statements you added at the end. 
+____________
+
 1. An explanation of how you generated your forecasts and why?
 My forecasts are generated through gathering the median flow data of every day in the month of October since 1989. I then subset the data, looking only at the median flows for days in October since 2011, ie. the last ten years. Because of the unusually high amount of rainfall we've gotten this last month, I decided to take the max value of this subset of data for my week 1 prediction and got a value of 131 CFS. For my two week prediction, because of my foreseeing of the monsoon season's end, I took the median value of the subset of data from the last 10 years and got a value of 114 CFS.
 
