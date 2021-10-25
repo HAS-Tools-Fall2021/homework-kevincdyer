@@ -11,7 +11,7 @@ import datetime
 # %%
 # Set the file name and path to where you have stored the data
 filename = 'streamflow_week7.txt'
-filepath = os.path.join('..\..\data', filename)
+filepath = os.path.join('..\data', filename)
 print(os.getcwd())
 print(filepath)
 
@@ -67,7 +67,7 @@ fig, ax = plt.subplots()
 ax.plot(data['datetime'], data['flow'], color='magenta', label='this week')
 ax.set(title="This Week's Flow, 9/30 - 10/6", xlabel='Date', ylabel='Flow in CFS',
         xlim = [datetime.date(2021, 9, 30), datetime.date(2021, 10, 6)],
-        ylim = [130, 250])
+        ylim = [130, 250]),
 ax.legend(loc='lower right')
 plt.show
 fig.savefig("Week7Flow.png")
