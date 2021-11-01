@@ -7,6 +7,7 @@ import os
 import json 
 import urllib.request as req
 import urllib
+from matplotlib.dates import DateFormatter
 
 
 # %%
@@ -38,9 +39,9 @@ base_url = "http://api.mesowest.net/v2/stations/timeseries"
 # Specific Arguments for Sedona Airport
 args = {
     'start': '199701010000',
-    'end': '202012310000',
+    'end': '202110240000',
     'obtimezone': 'UTC',
-    'vars': 'air_temp',
+    'vars': 'precip_accum_24_hour',
     'stids': 'KSEZ',
     'units': 'precip|mm',
     'token': mytoken} 
@@ -77,7 +78,7 @@ rain_daily['day'] = pd.DatetimeIndex(rain_daily.index).day
 # Specific arguments for Flagstaff
 args = {
     'start': '199701010000',
-    'end': '202012310000',
+    'end': '202110240000',
     'obtimezone': 'UTC',
     'vars': 'precip_accum_24_hour',
     'stids': 'KFLG',
@@ -148,12 +149,12 @@ fig.savefig('Mean_precip_cumulative.png')
 # Week 9 Flow
 
 recent_flow = flow_data.tail(30)
-xformat = df("%m-%d")
+xformat = DateFormatter("%m-%d")
 plt.style.use('seaborn-whitegrid')
 fig, ax = plt.subplots()
 ax.plot(recent_flow['flow'], color='steelblue', label='Last Month')
 ax.xaxis.set_major_formatter(xformat)
-ax.xaxis.set_major_locator(dl(interval=4))
+ax.xaxis.set_major_locator(dl(interval=5))
 ax.set(title="Observed Flow", xlabel="Date",
        ylabel="Weekly Avg Flow [CFS]")
 ax.legend()
