@@ -91,9 +91,13 @@ plt.show()
 
 # Add some points
 # UA:  32.22877495, -110.97688412
-# STream gauge:  34.44833333, -111.7891667
+# Stream gauge:  34.44833333, -111.7891667
+# Also added the coordinates for the stream gauges I used last HW in /
+# Flagstaff and Sedona
 point_list = np.array([[-110.97688412, 32.22877495],
-                       [-111.7891667, 34.44833333]])
+                       [-111.7891667, 34.44833333],
+                       [-111.7884475,34.8485892],
+                       [-111.6692414,35.1403158]])
 #make these into spatial features
 point_geom = [Point(xy) for xy in point_list]
 point_geom
@@ -140,7 +144,7 @@ fig, ax = plt.subplots(figsize=(5, 5))
 gages_AZ.plot(column='DRAIN_SQKM', categorical=False,
               legend=True, markersize=45, cmap='Set2',
               ax=ax)
-points_project.plot(ax=ax, color='black', marker='*')
+points_project.plot(ax=ax, color='black', marker='D')
 
 
 # %%
@@ -166,12 +170,19 @@ HUC6_project.boundary.plot(ax=ax, color=None,
 HUC6_project = HUC6.to_crs(gages_AZ.crs)
 
 
-# Now plot again
+# My Final Map Plot
+# Used 'terrain' color map because I believe it was the most visually /
+# distinguishable. Colored my data points red and made them 'X's to stand out./
+# I couldn't get the basemap to change, however. No matter what I chose It /
+# always came out looking the same.
 fig, ax = plt.subplots(figsize=(5, 5))
 gages_AZ.plot(column='DRAIN_SQKM', categorical=False,
-              legend=True, markersize=25, cmap='Set2',
+              legend=True, markersize=25, cmap='terrain',
               ax=ax)
-points_project.plot(ax=ax, color='black', marker='*')
+points_project.plot(ax=ax, color='red', marker='X')
 HUC6_project.boundary.plot(ax=ax, color=None,
-                           edgecolor='black', linewidth=1)
-ctx.add_basemap(ax)
+                           edgecolor='black', linewidth=.3)
+ctx.add_basemap(ax, crs=gages_AZ.crs, url = ctx.providers.Stamen.TonerLite)
+fig.savefig("AZ_Watershed")
+
+# %%
