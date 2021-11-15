@@ -5,6 +5,10 @@ Kevin Dyer
 HWRS 501
 
 HW11
+____
+### Grade
+3/3 - Really nice job working with a different dataset!
+____
 
 1. A brief summary of the how you chose to generate your forecast this week.
 Like the weeks prior, I used the function I created to generate my flow prediction. Wherein I get the median flow data from every day of the month of November since 1989, and then take the max value to represent my 1 week estimate, and the median value to be my 2 week estimate. However, due to historical flow increasing significantly towards the end of November each year, this method has proven to be not as useful for this kind of trend.
