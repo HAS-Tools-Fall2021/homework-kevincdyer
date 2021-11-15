@@ -108,8 +108,8 @@ flow_data['day'] = pd.DatetimeIndex(flow_data['datetime']).day
 flow_data['dayofweek'] = pd.DatetimeIndex(flow_data['datetime']).dayofweek
 flow_data = flow_data.set_index('datetime')
 
-month_median = np.zeros(31)
-for d in range(31):
+month_median = np.zeros(10)
+for d in range(10):
         daytemp = d+1
         tempdata = flow_data[(flow_data['year']) & (flow_data['month']) & (flow_data['day'] == daytemp)]
         month_median[d] = np.median(tempdata['flow'])
@@ -142,9 +142,9 @@ print('Iteration', d,'Day=', daytemp, 'Flow=', month_median[d])
 # %%
 # Change to represent the subset of data you want to see
 
-Startyear = 2011
-Month = 10
-Days = 31
+Startyear = 2017
+Month = 11
+Days = 10
 
 flow_subset = flow_median(Startyear, Month, Days, flow_data)
 
@@ -153,6 +153,6 @@ print(flow_subset)
 # %%
 print('My one week prediction for average flow is', np.max(flow_subset), \
         'ft^3/s, and my two week prediction is', np.median(flow_subset), \
-        'ft^3/s. Both predictions are based off the median flow rates of Camp Verde from the Month of October since 2011. The 1 week prediction is the max of this subset of data due to the unusually high amount of rainfall recently, and the two week preidction is the median of this subset of data.')
+        'ft^3/s. Both predictions are based off the median flow rates of Camp Verde from the Month of October since 2016. The 1 week prediction is the max of this subset of data due to the unusually high amount of rainfall recently, and the two week preidction is the median of this subset of data.')
 
 # %%
