@@ -144,7 +144,7 @@ print('Iteration', d,'Day=', daytemp, 'Flow=', month_median[d])
 
 Startyear = 2017
 Month = 11
-Days = 10
+Days = 20
 
 flow_subset = flow_median(Startyear, Month, Days, flow_data)
 
