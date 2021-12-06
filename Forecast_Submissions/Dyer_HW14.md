@@ -2,6 +2,9 @@
 ## 11/27/21
 ## HW14
 _____________________________________________________________
+### Grade
+3/3: Great job! I'm gald you found this experience useful even though you were not able to get things running.  Not writing good readme's and not clearly documenting what needs to be installed and how are some of the most common pitfalls that people run into so I think your experience, while not positive, is unforutnately quite representative. 
+____
 
 1. The paper I chose was named the "Making of the New European Wind Atlas" and is from the European Geosciences Union. It describes the sensitivity
 analysis and evaluation procedures used as a basis for deciding the final setup of the mesoscale model simulations of the European Wind Atlas.
