@@ -1,6 +1,9 @@
 # Assignment 15: Computing Resources
 ## December 5th, 2021
 ## By Kevin Dyer
+
+### Grade
+3/3: Great job. Glad you got it working! We'll talk more about your question tomorrow. 
 _____________________________________________________________
 
 1. What resources did you request on Puma? How long did you wait in the queue for your job to run and how long did it take to run?
